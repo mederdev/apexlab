@@ -33,8 +33,6 @@ $ docker compose up -d
 Swagger -> (http://localhost:3000/api/docs)
 
 
-Апишка уже работает на хосте http://172.31.36.151/api/docs
-
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
