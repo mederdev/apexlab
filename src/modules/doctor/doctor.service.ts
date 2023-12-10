@@ -12,61 +12,61 @@ export class DoctorService {
   constructor(
     private readonly em: EntityManager,
     @InjectRepository(Doctor)
-    private readonly doctorRepository: EntityRepository<Doctor>
+    private readonly doctorRepository: EntityRepository<Doctor>,
   ) {}
 
   async create(createMedicineDto: CreateDoctorDto) {
-    const doctor = this.doctorRepository.create(createMedicineDto)
+    const doctor = this.doctorRepository.create(createMedicineDto);
 
-    await this.em.persist(doctor).flush()
+    await this.em.persist(doctor).flush();
 
     return {
-      message: MessagesEnum.CREATED
-    }
+      message: MessagesEnum.CREATED,
+    };
   }
   async findAll(listParams: ListParamsDto) {
     const data = await this.doctorRepository.findAll({
       limit: listParams.limit,
-      offset: listParams.countOffset()
-    })
+      offset: listParams.countOffset(),
+    });
 
-    if (!data.length) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!data.length) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    const count = await this.doctorRepository.count()
+    const count = await this.doctorRepository.count();
 
     return {
       count,
-      data
+      data,
     };
   }
   async findOne(id: number) {
-    const doctor = await this.doctorRepository.findOne({ id })
+    const doctor = await this.doctorRepository.findOne({ id });
 
-    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    return doctor
+    return doctor;
   }
   async update(id: number, payload: UpdateDoctorDto) {
-    const doctor = await this.doctorRepository.findOne({ id })
+    const doctor = await this.doctorRepository.findOne({ id });
 
-    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    this.em.assign(doctor, payload)
-    await this.em.flush()
+    this.em.assign(doctor, payload);
+    await this.em.flush();
 
     return {
-      message: MessagesEnum.UPDATED
+      message: MessagesEnum.UPDATED,
     };
   }
   async remove(id: number) {
-    const doctor = await this.doctorRepository.findOne({ id })
+    const doctor = await this.doctorRepository.findOne({ id });
 
-    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!doctor) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    await this.em.removeAndFlush(doctor)
+    await this.em.removeAndFlush(doctor);
 
     return {
-      message: MessagesEnum.DELETED
+      message: MessagesEnum.DELETED,
     };
   }
 }

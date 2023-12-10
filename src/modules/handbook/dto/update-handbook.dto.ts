@@ -4,7 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class UpdateHandbookDto {
   @ApiProperty({
     type: String,
-    description: 'Название справочника:'
+    description: 'Название справочника:',
   })
   @IsString()
   @IsOptional()
@@ -13,7 +13,7 @@ export class UpdateHandbookDto {
 
   @ApiProperty({
     type: String,
-    description: 'Описание справочника:'
+    description: 'Описание справочника:',
   })
   @IsString()
   @IsOptional()

@@ -1,5 +1,5 @@
 export enum ProgramApparatusEnum {
   HD = 'HD',
   HDF = 'HDF',
-  UF = 'UF'
+  UF = 'UF',
 }

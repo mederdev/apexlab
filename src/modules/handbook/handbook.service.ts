@@ -14,59 +14,59 @@ export class HandbookService {
   constructor(
     private readonly em: EntityManager,
     @InjectRepository(Handbook)
-    private readonly handbookRepository: EntityRepository<Handbook>
+    private readonly handbookRepository: EntityRepository<Handbook>,
   ) {}
 
   async create(payload: CreateHandbookDto) {
     const handbook = this.handbookRepository.create(payload);
 
-    await this.em.persist(handbook).flush()
+    await this.em.persist(handbook).flush();
 
     return {
-      message: MessagesEnum.CREATED
-    }
+      message: MessagesEnum.CREATED,
+    };
   }
 
   async getAll(listParams: ListParamsDto, searchParams: TypeSearchQuery) {
-    const whereQuery = queryGenerator(searchParams, 'type', 'eq')
+    const whereQuery = queryGenerator(searchParams, 'type', 'eq');
 
-    const data = await this.handbookRepository.find(whereQuery,{
+    const data = await this.handbookRepository.find(whereQuery, {
       limit: listParams.limit,
-      offset: listParams.countOffset()
-    })
+      offset: listParams.countOffset(),
+    });
 
-    if (!data.length) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!data.length) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    const count = await this.handbookRepository.count(whereQuery)
+    const count = await this.handbookRepository.count(whereQuery);
 
     return {
       count,
-      data
-    }
+      data,
+    };
   }
 
   async update(id: number, payload: UpdateHandbookDto) {
-    const handbook = await this.handbookRepository.findOne({ id })
+    const handbook = await this.handbookRepository.findOne({ id });
 
-    if (!handbook) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!handbook) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    this.em.assign(handbook, payload)
-    await this.em.flush()
+    this.em.assign(handbook, payload);
+    await this.em.flush();
 
     return {
-      message: MessagesEnum.UPDATED
+      message: MessagesEnum.UPDATED,
     };
   }
 
   async delete(id: number) {
-    const handbook = await this.handbookRepository.findOne({ id })
+    const handbook = await this.handbookRepository.findOne({ id });
 
-    if (!handbook) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!handbook) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    await this.em.removeAndFlush(handbook)
+    await this.em.removeAndFlush(handbook);
 
     return {
-      message: MessagesEnum.DELETED
+      message: MessagesEnum.DELETED,
     };
   }
 }

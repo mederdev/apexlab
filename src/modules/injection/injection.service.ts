@@ -16,60 +16,63 @@ export class InjectionService {
     private readonly injectionService: EntityRepository<Injection>,
   ) {}
 
-  async getInjections(listParams: ListParamsDto, searchParams: InjectionSearchQuery) {
-    const whereQuery = queryGenerator(searchParams, 'type')
+  async getInjections(
+    listParams: ListParamsDto,
+    searchParams: InjectionSearchQuery,
+  ) {
+    const whereQuery = queryGenerator(searchParams, 'type');
 
     const injections = await this.injectionService.find(whereQuery, {
       limit: listParams.limit,
       offset: listParams.countOffset(),
-    })
+    });
 
-    if (!injections.length) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!injections.length) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    const itemsCount = await this.injectionService.count(whereQuery)
+    const itemsCount = await this.injectionService.count(whereQuery);
 
     return {
       count: itemsCount,
-      data: injections
-    }
+      data: injections,
+    };
   }
   async createInjection(payload) {
-    const injection = this.injectionService.create(payload)
+    const injection = this.injectionService.create(payload);
 
-    await this.em.persist(injection).flush()
+    await this.em.persist(injection).flush();
 
     return {
-      message: MessagesEnum.CREATED
-    }
+      message: MessagesEnum.CREATED,
+    };
   }
   async findOne(id: number) {
     const injection = await this.injectionService.findOne({ id });
 
     if (!injection) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    return injection
+    return injection;
   }
   async update(id: number, payload: UpdateInjectionDto) {
-    const injection = await this.injectionService.findOne({ id })
+    const injection = await this.injectionService.findOne({ id });
 
-    if (!injection) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!injection) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    this.em.assign(injection, payload)
-    await this.em.flush()
+    this.em.assign(injection, payload);
+    await this.em.flush();
 
     return {
-      message: MessagesEnum.UPDATED
+      message: MessagesEnum.UPDATED,
     };
   }
   async remove(id: number) {
-    const injection = await this.injectionService.findOne({ id })
+    const injection = await this.injectionService.findOne({ id });
 
-    if (!injection) throw new NotFoundException(MessagesEnum.NOT_FOUND)
+    if (!injection) throw new NotFoundException(MessagesEnum.NOT_FOUND);
 
-    await this.em.removeAndFlush(injection)
+    await this.em.removeAndFlush(injection);
 
     return {
-      message: MessagesEnum.DELETED
+      message: MessagesEnum.DELETED,
     };
   }
 }

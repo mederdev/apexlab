@@ -3,20 +3,20 @@ export const queryGenerator = (data, field, type = 'contains') => {
     case 'eq': {
       if (data[field]) {
         return {
-          [field]: data[field]
-        }
+          [field]: data[field],
+        };
       }
-      return {}
+      return {};
     }
     case 'contains': {
       if (data[field]) {
         return {
           [field]: {
-            $ilike: `${data[field]}%`
-          }
-        }
+            $ilike: `${data[field]}%`,
+          },
+        };
       }
-      return {}
+      return {};
     }
   }
-}
+};

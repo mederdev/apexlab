@@ -6,7 +6,7 @@ export class InjectionSearchQuery {
   @ApiProperty({
     type: String,
     description: 'Тип:',
-    required: false
+    required: false,
   })
   @IsString()
   @IsEnum(InjectionEnum)

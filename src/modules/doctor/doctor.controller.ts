@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { DoctorService } from './doctor.service';
 import { CreateDoctorDto } from './dto/create-doctor.dto';
 import { UpdateDoctorDto } from './dto/update-doctor.dto';
@@ -16,7 +26,6 @@ export class DoctorController {
     return this.doctorService.create(createDoctorDto);
   }
 
-
   @ApiOperation({ summary: 'Получить список докторов' })
   @Get()
   findAll(@Query() listParams: ListParamsDto) {
@@ -31,7 +40,10 @@ export class DoctorController {
 
   @ApiOperation({ summary: 'Изменить данные доктора' })
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateDoctorDto: UpdateDoctorDto) {
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateDoctorDto: UpdateDoctorDto,
+  ) {
     return this.doctorService.update(id, updateDoctorDto);
   }
 

@@ -1,74 +1,74 @@
-import { Entity, ManyToOne, OneToMany, OneToOne, Property } from '@mikro-orm/core';
-import {BaseEntity} from "./base/base.entity";
+import { Entity, ManyToOne, OneToOne, Property } from '@mikro-orm/core';
+import { BaseEntity } from './base/base.entity';
 import { Injection } from './injection.entity';
 import { Record } from './record.entity';
 import { InjectionEnum } from '../common/enums/injection.enum';
 
 @Entity({
-  tableName: 'hemodialysis_sessions'
+  tableName: 'hemodialysis_sessions',
 })
 export class HemodialysisSession extends BaseEntity {
   @Property({
-    name: 'program_apparatus'
+    name: 'program_apparatus',
   })
   programApparatus: string;
 
   @Property({
-    type: 'string'
+    type: 'string',
   })
   dialyzer: string;
 
   @Property({
-    type: 'string'
+    type: 'string',
   })
   concentrator: string;
 
   @Property({
     type: 'numeric',
-    name: 'concentrator_volume'
+    name: 'concentrator_volume',
   })
   concentratorVolume: number;
 
   @Property({
     name: 'injection_type',
-    type: 'string'
+    type: 'string',
   })
   injectionType: InjectionEnum;
 
   @ManyToOne(() => Injection, {
-    nullable: true
+    nullable: true,
   })
-  injection: Injection
+  injection: Injection;
 
   @Property({
     type: 'integer',
     name: 'injection_id',
-    nullable: true
+    nullable: true,
   })
   injectionId: number;
 
   @Property({
-    type: 'string'
+    type: 'string',
   })
   bicarbonate: string;
 
   @Property({
     type: 'numeric',
-    name: 'patient_weight'
+    name: 'patient_weight',
   })
-  patientWeight: number
+  patientWeight: number;
 
   @Property({
-    type: 'string'
+    type: 'string',
   })
-  anticoagulation: string
+  anticoagulation: string;
 
   @Property({
     type: 'numeric',
-    name: 'anticoagulation_volume'
+    name: 'anticoagulation_volume',
   })
-  anticoagulationVolume: number
+  anticoagulationVolume: number;
 
-  @OneToOne(() => Record, record => record.hemodialysisSession)
+  @OneToOne(() => Record, (record) => record.hemodialysisSession)
   record!: Record;
 }

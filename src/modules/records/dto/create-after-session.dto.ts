@@ -16,11 +16,11 @@ export class CreateAfterSessionDto {
 
   @ApiProperty()
   @IsArray()
-  sessionNumbers: number[]
+  sessionNumbers: number[];
 
   @ApiProperty()
   @IsDateString()
-  start: Date
+  start: Date;
 
   @ApiProperty()
   @IsDateString()

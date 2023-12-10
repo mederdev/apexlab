@@ -5,7 +5,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class CreateHandbookDto {
   @ApiProperty({
     type: String,
-    description: 'Название справочника:'
+    description: 'Название справочника:',
   })
   @IsString()
   @MaxLength(128)
@@ -13,7 +13,7 @@ export class CreateHandbookDto {
 
   @ApiProperty({
     type: String,
-    description: 'Описание справочника:'
+    description: 'Описание справочника:',
   })
   @IsString()
   @MaxLength(2048)
@@ -21,7 +21,7 @@ export class CreateHandbookDto {
 
   @ApiProperty({
     type: String,
-    description: 'Тип справочника:'
+    description: 'Тип справочника:',
   })
   @IsString()
   @IsEnum(HandbookEnum)

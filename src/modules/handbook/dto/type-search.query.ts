@@ -6,10 +6,10 @@ export class TypeSearchQuery {
   @ApiProperty({
     type: String,
     description: 'Тип справочника:',
-    required: false
+    required: false,
   })
   @IsString()
   @IsOptional()
   @IsEnum(HandbookEnum)
-  type: HandbookEnum
+  type: HandbookEnum;
 }

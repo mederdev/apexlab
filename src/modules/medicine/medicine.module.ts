@@ -8,8 +8,8 @@ import { Medicine } from '../../entities/medicine.entity';
 @Module({
   imports: [
     MikroOrmModule.forFeature({
-      entities: [Injection, Medicine]
-    })
+      entities: [Injection, Medicine],
+    }),
   ],
   controllers: [MedicineController],
   providers: [MedicineService],

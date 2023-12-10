@@ -1,26 +1,26 @@
-import { Entity, OneToMany, OneToOne, Property } from '@mikro-orm/core';
-import {BaseEntity} from "./base/base.entity";
+import { Entity, OneToMany, Property } from '@mikro-orm/core';
+import { BaseEntity } from './base/base.entity';
 import { Record } from './record.entity';
 
 @Entity({
-  tableName: 'doctors'
+  tableName: 'doctors',
 })
 export class Doctor extends BaseEntity {
   @Property({
-    type: 'string'
+    type: 'string',
   })
-  name: string
+  name: string;
 
   @Property({
-    type: 'numeric'
+    type: 'numeric',
   })
-  age: number
+  age: number;
 
   @Property({
-    type: 'string'
+    type: 'string',
   })
-  specialization: string
+  specialization: string;
 
-  @OneToMany(() => Record, record => record.doctor)
-  records: Record[]
+  @OneToMany(() => Record, (record) => record.doctor)
+  records: Record[];
 }

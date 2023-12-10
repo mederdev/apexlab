@@ -1,20 +1,20 @@
-import {PrimaryKey, Property} from "@mikro-orm/core";
+import { PrimaryKey, Property } from '@mikro-orm/core';
 
 export class BaseEntity {
   @PrimaryKey({
     autoincrement: true,
   })
-  id: number
+  id: number;
 
   @Property({
     type: 'date',
-    default: 'NOW()'
+    default: 'NOW()',
   })
-  createdAt: Date
+  createdAt: Date;
 
   @Property({
     type: 'date',
-    default: 'NOW()'
+    default: 'NOW()',
   })
   updatedAt: Date;
 }

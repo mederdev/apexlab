@@ -5,9 +5,11 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Doctor } from '../../entities/doctor.entity';
 
 @Module({
-  imports: [MikroOrmModule.forFeature({
-    entities: [Doctor]
-  })],
+  imports: [
+    MikroOrmModule.forFeature({
+      entities: [Doctor],
+    }),
+  ],
   controllers: [DoctorController],
   providers: [DoctorService],
 })

@@ -4,25 +4,25 @@ import { ApiProperty } from '@nestjs/swagger';
 export class CreateDoctorDto {
   @ApiProperty({
     type: String,
-    description: 'Имя доктора:'
+    description: 'Имя доктора:',
   })
   @IsString()
   @MaxLength(64)
-  name: string
+  name: string;
 
   @ApiProperty({
     type: Number,
-    description: 'Возраст доктора:'
+    description: 'Возраст доктора:',
   })
   @IsNumber()
   @Max(256)
-  age: number
+  age: number;
 
   @ApiProperty({
     type: String,
-    description: 'Специальность доктора:'
+    description: 'Специальность доктора:',
   })
   @IsString()
   @MaxLength(256)
-  specialization: string
+  specialization: string;
 }

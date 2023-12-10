@@ -7,8 +7,8 @@ import { Handbook } from '../../entities/handbook.entity';
 @Module({
   imports: [
     MikroOrmModule.forFeature({
-      entities: [Handbook]
-    })
+      entities: [Handbook],
+    }),
   ],
   controllers: [HandbookController],
   providers: [HandbookService],

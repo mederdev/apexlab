@@ -20,7 +20,7 @@ export class CreateHomeTreatmentDto {
 
   @ApiProperty()
   @IsDateString()
-  start: Date
+  start: Date;
 
   @ApiProperty()
   @IsDateString()

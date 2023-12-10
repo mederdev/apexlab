@@ -5,9 +5,11 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Injection } from '../../entities/injection.entity';
 
 @Module({
-  imports: [MikroOrmModule.forFeature({
-    entities: [Injection]
-  })],
+  imports: [
+    MikroOrmModule.forFeature({
+      entities: [Injection],
+    }),
+  ],
   controllers: [InjectionController],
   providers: [InjectionService],
 })

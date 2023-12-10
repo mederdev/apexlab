@@ -5,5 +5,5 @@ export enum InjectionTypesEnum {
   MALEKO = 'Малеко',
   PEZZERA = 'Пеццера',
   TIMANNA = 'Тиманна',
-  NELATONA = 'Нелатона'
+  NELATONA = 'Нелатона',
 }

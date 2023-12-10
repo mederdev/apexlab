@@ -1,23 +1,23 @@
 import { Entity, Property } from '@mikro-orm/core';
-import {BaseEntity} from "./base/base.entity";
+import { BaseEntity } from './base/base.entity';
 import { HandbookEnum } from '../common/enums/handbook.enum';
 
 @Entity({
-  tableName: 'handbooks'
+  tableName: 'handbooks',
 })
 export class Handbook extends BaseEntity {
   @Property({
-    type: "string",
+    type: 'string',
   })
-  name: string
+  name: string;
 
   @Property({
-    type: "string"
+    type: 'string',
   })
-  description: string
+  description: string;
 
   @Property({
-    type: () => HandbookEnum
+    type: () => HandbookEnum,
   })
-  type: HandbookEnum
+  type: HandbookEnum;
 }

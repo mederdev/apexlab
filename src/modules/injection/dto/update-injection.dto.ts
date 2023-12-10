@@ -5,7 +5,7 @@ import { InjectionTypesEnum } from '../../../common/enums/injection-types.enum';
 export class UpdateInjectionDto {
   @ApiProperty({
     type: String,
-    description: 'Название инъекции:'
+    description: 'Название инъекции:',
   })
   @IsString()
   @IsOptional()
@@ -13,7 +13,7 @@ export class UpdateInjectionDto {
 
   @ApiProperty({
     type: String,
-    description: 'Тип иглы:'
+    description: 'Тип иглы:',
   })
   @IsString()
   @IsEnum(InjectionTypesEnum)
@@ -22,7 +22,7 @@ export class UpdateInjectionDto {
 
   @ApiProperty({
     type: Number,
-    description: 'Размер инъекции:'
+    description: 'Размер инъекции:',
   })
   @IsNumber()
   @IsOptional()

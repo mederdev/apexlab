@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import {MikroOrmModule} from "@mikro-orm/nestjs";
-import {DbConfig} from "./config/db.config";
+import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { DbConfig } from './config/db.config';
 import { MedicineModule } from './modules/medicine/medicine.module';
 import { DoctorModule } from './modules/doctor/doctor.module';
 import { RecordsModule } from './modules/records/records.module';
@@ -13,7 +13,7 @@ import { InjectionModule } from './modules/injection/injection.module';
     DoctorModule,
     RecordsModule,
     HandbookModule,
-    InjectionModule
+    InjectionModule,
   ],
   controllers: [],
   providers: [],

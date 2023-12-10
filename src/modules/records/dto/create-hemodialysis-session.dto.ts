@@ -1,4 +1,4 @@
-import { IsEnum, IsNumber, IsString, MaxLength } from 'class-validator';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
 import { InjectionEnum } from '../../../common/enums/injection.enum';
 import { ProgramApparatusEnum } from '../../../common/enums/program-apparatus.enum';
 import { ApiProperty } from '@nestjs/swagger';
@@ -36,13 +36,13 @@ export class CreateHemodialysisSessionDto {
 
   @ApiProperty()
   @IsNumber()
-  patientWeight: number
+  patientWeight: number;
 
   @ApiProperty()
   @IsString()
-  anticoagulation: string
+  anticoagulation: string;
 
   @ApiProperty()
   @IsNumber()
-  anticoagulationVolume: number
+  anticoagulationVolume: number;
 }

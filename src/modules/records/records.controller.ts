@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, ParseIntPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  Query,
+  ParseIntPipe,
+} from '@nestjs/common';
 import { RecordsService } from './records.service';
 import { CreateRecordDto } from './dto/create-record.dto';
 import { UpdateRecordDto } from './dto/update-record.dto';
@@ -13,7 +23,10 @@ import { ApiOperation, ApiTags } from '@nestjs/swagger';
 export class RecordsController {
   constructor(private readonly recordsService: RecordsService) {}
 
-  @ApiOperation({ summary: 'Создать сеанс', description: `Метод принимает айди сеансов и создаст конечный сеанс гемодиализа` })
+  @ApiOperation({
+    summary: 'Создать сеанс',
+    description: `Метод принимает айди сеансов и создаст конечный сеанс гемодиализа`,
+  })
   @Post()
   create(@Body() createRecordDto: CreateRecordDto) {
     return this.recordsService.create(createRecordDto);
@@ -51,8 +64,11 @@ export class RecordsController {
 
   @ApiOperation({ summary: 'Изменить сеанс' })
   @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateRecordDto: UpdateRecordDto) {
-    return this.recordsService.update(id, updateRecordDto)
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateRecordDto: UpdateRecordDto,
+  ) {
+    return this.recordsService.update(id, updateRecordDto);
   }
 
   @ApiOperation({ summary: 'Удалить сеанс' })

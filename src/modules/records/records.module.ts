@@ -14,8 +14,15 @@ import { Medicine } from '../../entities/medicine.entity';
 @Module({
   imports: [
     MikroOrmModule.forFeature({
-      entities: [HemodialysisSession, Record, Injection, AfterSession, HomeTreatment, Medicine]
-    })
+      entities: [
+        HemodialysisSession,
+        Record,
+        Injection,
+        AfterSession,
+        HomeTreatment,
+        Medicine,
+      ],
+    }),
   ],
   controllers: [RecordsController],
   providers: [RecordsService, InjectionService, MedicineService],

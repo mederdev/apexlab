@@ -8,11 +8,11 @@ export class CreateRecordDto {
 
   @ApiProperty()
   @IsArray()
-  afterSessions: number[]
+  afterSessions: number[];
 
   @ApiProperty()
   @IsArray()
-  homeTreatments: number[]
+  homeTreatments: number[];
 
   @ApiProperty()
   @IsNumber()
@@ -24,5 +24,5 @@ export class CreateRecordDto {
 
   @ApiProperty()
   @IsDateString()
-  date: Date
+  date: Date;
 }

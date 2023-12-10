@@ -6,7 +6,7 @@ import { InjectionEnum } from '../../../common/enums/injection.enum';
 export class CreateInjectionDto {
   @ApiProperty({
     type: String,
-    description: 'Название инъекции:'
+    description: 'Название инъекции:',
   })
   @IsString()
   name: string;
@@ -14,7 +14,7 @@ export class CreateInjectionDto {
   @ApiProperty({
     type: String,
     description: 'Тип иглы:',
-    enum: InjectionTypesEnum
+    enum: InjectionTypesEnum,
   })
   @IsString()
   @IsEnum(InjectionTypesEnum)
@@ -22,7 +22,7 @@ export class CreateInjectionDto {
 
   @ApiProperty({
     type: Number,
-    description: 'Размер инъекции:'
+    description: 'Размер инъекции:',
   })
   @IsNumber()
   size: number;
@@ -30,9 +30,9 @@ export class CreateInjectionDto {
   @ApiProperty({
     type: String,
     description: 'Тип инъекции:',
-    enum: InjectionEnum
+    enum: InjectionEnum,
   })
   @IsString()
   @IsEnum(InjectionEnum)
-  type: InjectionEnum
+  type: InjectionEnum;
 }

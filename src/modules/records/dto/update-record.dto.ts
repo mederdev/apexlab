@@ -1,4 +1,3 @@
-import { CreateRecordDto } from './create-record.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { IsArray, IsDateString, IsNumber, IsOptional } from 'class-validator';
 
@@ -11,12 +10,12 @@ export class UpdateRecordDto {
   @ApiProperty()
   @IsArray()
   @IsOptional()
-  afterSessions: number[]
+  afterSessions: number[];
 
   @ApiProperty()
   @IsArray()
   @IsOptional()
-  homeTreatments: number[]
+  homeTreatments: number[];
 
   @ApiProperty()
   @IsNumber()
@@ -31,5 +30,5 @@ export class UpdateRecordDto {
   @ApiProperty()
   @IsDateString()
   @IsOptional()
-  date: Date
+  date: Date;
 }
